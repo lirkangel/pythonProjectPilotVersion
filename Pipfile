@@ -1,0 +1,41 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+autopep8 = "*"
+flake8 = "*"
+pylint = "*"
+yapf = "*"
+jedi = "*"
+
+[packages]
+logzero = "*"
+pydantic = "*"
+avro-python3 = "*"
+requests = "*"
+fastapi = "*"
+uvicorn = "*"
+cerberus = "*"
+timeloop = "*"
+asyncpg = "*"
+colorama = "*"
+schedule = "*"
+apscheduler = "*"
+asyncscheduler = "*"
+sqlalchemy = "*"
+pymysql = "*"
+aiomysql = "*"
+fastapi_pagination = "*"
+passlib = "*"
+bcrypt = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+lint = "pylint **/*.py --rcfile=setup.cfg"
+test = "pytest -s tests"
+app = "python main.py"
