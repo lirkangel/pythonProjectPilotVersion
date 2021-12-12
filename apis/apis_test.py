@@ -1,3 +1,4 @@
+import logzero
 from random import randint
 from typing import Any
 
@@ -13,21 +14,25 @@ pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
 @router.post("/test")
 async def test_api(payload: Any):
-    return True
+    logzero.logger.info(payload)
+    return payload
 
 
 @router.post("/login")
 async def login_api(payload: Any):
+    logzero.logger.info(payload)
     return True
 
 
 @router.post("/logout")
 async def logout_api(payload: Any):
+    logzero.logger.info(payload)
     return True
 
 
 @router.get("/me")
 async def self_information_api(payload: Any):
+    logzero.logger.info(payload)
     return True
 
 

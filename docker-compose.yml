@@ -1,0 +1,11 @@
+version: '2.0'
+services:
+  slash-cas:
+    build: .
+    restart: always
+    environment:
+      MYSQL_URL: mysql+pymysql://root:password_root@localhost:3306/auth_cas
+    ports:
+      - '5600:5600'
+    expose:
+      - '5600'
