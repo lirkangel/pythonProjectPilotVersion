@@ -1,12 +1,13 @@
-import logzero
+import json
 from random import randint
 from typing import Any
 
-from fastapi import APIRouter
+import logzero
+from fastapi import APIRouter, Request
 from passlib.context import CryptContext
 
 from conn import AppConnection
-from models.apis_model import AuthBody
+from models.apis_model import AuthBody, AnyBody
 
 router = APIRouter()
 pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
@@ -16,6 +17,13 @@ pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 async def test_api(payload: Any):
     logzero.logger.info(payload)
     return payload
+
+
+@router.post("/create")
+async def test_api(user: Request):
+    a = await user.json()
+    logzero.logger.info(a)
+    return user
 
 
 @router.post("/login")

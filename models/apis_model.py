@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic.main import BaseModel
 
 
@@ -9,3 +11,6 @@ class AuthBody(BaseModel):
 class AuthRequest(AuthBody):
     email: str
 
+
+class AnyBody(BaseModel):
+    user: Any
